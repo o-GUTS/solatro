@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://02vuq4ofl2ge"]
+
+[ext_resource type="Script" uid="uid://dlogno4rds1gc" path="res://src/base_card.gd" id="1_drw6k"]
+[ext_resource type="Shader" uid="uid://db3x552di7v0o" path="res://assets/shaders/2dPerspective.gdshader" id="2_wr47h"]
+[ext_resource type="Texture2D" uid="uid://bp13v6qsq28vu" path="res://assets/Hand Drawn Cards/Hearts/1h.png" id="3_wr47h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_unfoy"]
+shader = ExtResource("2_wr47h")
+shader_parameter/fov = 90.0
+shader_parameter/cull_back = true
+shader_parameter/y_rot = 0.0
+shader_parameter/x_rot = 0.0
+shader_parameter/inset = 0.10000000475
+
+[node name="baseCard" type="Control" unique_id=1762261797]
+custom_minimum_size = Vector2(160, 230)
+layout_mode = 3
+anchor_right = 0.079
+anchor_bottom = 0.2
+offset_right = -0.39800262
+offset_bottom = 0.27999878
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_drw6k")
+
+[node name="texturePivot" type="Control" parent="." unique_id=72009469]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="texture" type="Sprite2D" parent="texturePivot" unique_id=732876603]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_unfoy")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_wr47h")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

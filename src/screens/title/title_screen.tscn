@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://dovasj70yxw1j"]
+
+[ext_resource type="Script" uid="uid://dhfofs2bhq77o" path="res://src/screens/title/title_screen.gd" id="1_vkn5v"]
+[ext_resource type="PackedScene" uid="uid://tvwxv6gxhhdt" path="res://src/ui/sound_button.tscn" id="2_xpeye"]
+[ext_resource type="AudioStream" uid="uid://cw3dlwc8vicug" path="res://assets/sounds/tarot1.ogg" id="3_a8rsv"]
+[ext_resource type="AudioStream" uid="uid://xa6227o1ggyk" path="res://assets/sounds/generic1.ogg" id="4_o8172"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vkn5v"]
+font_size = 150
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 21
+shadow_color = Color(0, 0, 0, 0.22745098)
+shadow_offset = Vector2(15, 7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpeye"]
+bg_color = Color(0.3641191, 0.56225276, 0.76189435, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8rsv"]
+bg_color = Color(0.29183227, 0.48201674, 0.6688034, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8172"]
+bg_color = Color(0.7764706, 0.6313726, 0.21960784, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wb8xf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.7137255, 0.5803922, 0.19215687, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ehvh6"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.7137255, 0.5803922, 0.19215687, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kns1x"]
+bg_color = Color(0.50340843, 0.72501063, 0.332123, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbdkf"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.36078432, 0.5372549, 0.23137255, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eybot"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.36078432, 0.5372549, 0.23137255, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="titleScreen" type="Control" unique_id=1555526027]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vkn5v")
+
+[node name="bg" type="ColorRect" parent="." unique_id=998370440]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3647059, 0.29411766, 0.44313726, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg" unique_id=529209731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 270
+alignment = 1
+
+[node name="Label" type="Label" parent="bg/VBoxContainer" unique_id=1970856668]
+layout_mode = 2
+size_flags_vertical = 1
+text = "SOLATRO"
+label_settings = SubResource("LabelSettings_vkn5v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/VBoxContainer" unique_id=709478951]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/VBoxContainer/VBoxContainer" unique_id=2075502803]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="playBtn" parent="bg/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1355851337 instance=ExtResource("2_xpeye")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_xpeye")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8rsv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a8rsv")
+text = "PLAY"
+click_sound = ExtResource("3_a8rsv")
+hover_sound = ExtResource("4_o8172")
+click_volume = -7.0
+hover_volume = -20.0
+
+[node name="optionsBtn" parent="bg/VBoxContainer/VBoxContainer/HBoxContainer" unique_id=1294902941 instance=ExtResource("2_xpeye")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_o8172")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wb8xf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ehvh6")
+text = "OPTIONS"
+click_sound = ExtResource("3_a8rsv")
+hover_sound = ExtResource("4_o8172")
+click_volume = -7.0
+hover_volume = -20.0
+
+[node name="creditsBtn" parent="bg/VBoxContainer/VBoxContainer" unique_id=1981952266 instance=ExtResource("2_xpeye")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_kns1x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gbdkf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eybot")
+text = "CREDITS"
+click_sound = ExtResource("3_a8rsv")
+hover_sound = ExtResource("4_o8172")
+click_volume = -7.0
+hover_volume = -20.0
+
+[connection signal="pressed" from="bg/VBoxContainer/VBoxContainer/HBoxContainer/playBtn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="bg/VBoxContainer/VBoxContainer/HBoxContainer/optionsBtn" to="." method="_on_options_btn_pressed"]
+[connection signal="pressed" from="bg/VBoxContainer/VBoxContainer/creditsBtn" to="." method="_on_credits_btn_pressed"]

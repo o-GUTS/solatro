@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://osnekjhuum7t"]
+
+[ext_resource type="Script" uid="uid://nvm2kw0nlsyn" path="res://src/screens/shop/shop_screen.gd" id="1_g6agy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6agy"]
+bg_color = Color(0.08627451, 0.08627451, 0.08627451, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g6agy"]
+font_size = 103
+
+[sub_resource type="LabelSettings" id="LabelSettings_gl1a1"]
+font_size = 68
+
+[sub_resource type="LabelSettings" id="LabelSettings_kwpe4"]
+font_size = 68
+
+[node name="shop_screen" type="Control" unique_id=2071191550]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g6agy")
+
+[node name="bg" type="ColorRect" parent="." unique_id=1070876748]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3647059, 0.29411766, 0.44313726, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="bg" unique_id=1155429470]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="bg/CenterContainer" unique_id=1753735494]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_g6agy")
+
+[node name="MarginContainer" type="MarginContainer" parent="bg/CenterContainer/PanelContainer" unique_id=1962504993]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer" unique_id=770655631]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1676822443]
+layout_mode = 2
+text = "SHOP"
+label_settings = SubResource("LabelSettings_g6agy")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=964609775]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1648724551]
+layout_mode = 2
+text = "Current Cash:"
+label_settings = SubResource("LabelSettings_gl1a1")
+
+[node name="currentCashLabel" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1799594510]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_kwpe4")
+
+[node name="GridContainer" type="GridContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=135970590]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 35
+columns = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1237874063]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer" unique_id=76040789]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer/VBoxContainer" unique_id=1937784346]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Extra Card"
+horizontal_alignment = 1
+
+[node name="buyExtraCardBtn" type="Button" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer/VBoxContainer" unique_id=424569685]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 56
+text = "$10"
+
+[node name="PanelContainer2" type="PanelContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=406654532]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer2" unique_id=1341282872]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer2/VBoxContainer" unique_id=1999418333]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Extra Discard"
+horizontal_alignment = 1
+
+[node name="buyExtraDiscardBtn" type="Button" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer2/VBoxContainer" unique_id=98318842]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 56
+text = "$25"
+
+[node name="PanelContainer3" type="PanelContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1490873588]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer3" unique_id=1784327560]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer3/VBoxContainer" unique_id=1625815922]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Pocket Points"
+horizontal_alignment = 1
+
+[node name="buyPocketPointsBtn" type="Button" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer3/VBoxContainer" unique_id=1754126710]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 56
+text = "$50"
+
+[node name="PanelContainer4" type="PanelContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=2131075075]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer4" unique_id=813505291]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer4/VBoxContainer" unique_id=1541309980]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Extra hand"
+horizontal_alignment = 1
+
+[node name="buyExtraHandBtn" type="Button" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer4/VBoxContainer" unique_id=800250489]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 56
+text = "$75"
+
+[node name="PanelContainer5" type="PanelContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=715263335]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer5" unique_id=217961893]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer5/VBoxContainer" unique_id=684699302]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Double Score"
+horizontal_alignment = 1
+
+[node name="buyDoubleScoreBtn" type="Button" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer5/VBoxContainer" unique_id=940007350]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 56
+text = "$100"
+
+[node name="PanelContainer6" type="PanelContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer" unique_id=1803080915]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer6" unique_id=1977255675]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer6/VBoxContainer" unique_id=927842755]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Shield"
+horizontal_alignment = 1
+
+[node name="buyShieldBtn" type="Button" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/GridContainer/PanelContainer6/VBoxContainer" unique_id=1370097514]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 56
+text = "$150"
+
+[node name="quitShopBtn" type="Button" parent="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1279725315]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 60
+text = "GO!"
+
+[connection signal="pressed" from="bg/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/quitShopBtn" to="." method="_on_quit_shop_btn_pressed"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dg4ws74nt3fcu"]
+
+[ext_resource type="PackedScene" uid="uid://d4e24l3ib0x5s" path="res://src/transition_manager/screen_transition_manager.tscn" id="5_fyndt"]
+
+[node name="main" type="Node" unique_id=1691398630]
+
+[node name="screen_transition_manager" parent="." unique_id=1150354445 instance=ExtResource("5_fyndt")]

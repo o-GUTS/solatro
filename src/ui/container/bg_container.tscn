@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://chl8x0dnk0rwa"]
+
+[ext_resource type="Script" uid="uid://c2n40qaawopon" path="res://src/ui/container/bg_container.gd" id="1_ciwai"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ciwai"]
+bg_color = Color(1, 1, 1, 1)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[node name="bgContainer" type="PanelContainer" unique_id=446346067]
+theme_override_styles/panel = SubResource("StyleBoxFlat_ciwai")
+script = ExtResource("1_ciwai")

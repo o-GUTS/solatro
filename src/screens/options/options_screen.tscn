@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bwv315jmva8dl"]
+
+[ext_resource type="Script" uid="uid://btd16dh54ede2" path="res://src/screens/options/options_screen.gd" id="1_60pki"]
+[ext_resource type="PackedScene" uid="uid://tvwxv6gxhhdt" path="res://src/ui/sound_button.tscn" id="2_x3rkd"]
+[ext_resource type="AudioStream" uid="uid://cw3dlwc8vicug" path="res://assets/sounds/tarot1.ogg" id="3_i7j30"]
+[ext_resource type="AudioStream" uid="uid://xa6227o1ggyk" path="res://assets/sounds/generic1.ogg" id="4_j06wm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_60pki"]
+font_size = 47
+
+[node name="optionsScreen" type="Control" unique_id=385300130]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60pki")
+
+[node name="bg" type="ColorRect" parent="." unique_id=478633846]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3647059, 0.29411766, 0.44313726, 1)
+
+[node name="centerCont" type="CenterContainer" parent="bg" unique_id=1193194747]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="panelCont" type="PanelContainer" parent="bg/centerCont" unique_id=1245784679]
+custom_minimum_size = Vector2(1000, 700)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/centerCont/panelCont" unique_id=622075919]
+layout_mode = 2
+alignment = 1
+
+[node name="marginCont" type="MarginContainer" parent="bg/centerCont/panelCont/VBoxContainer" unique_id=627451615]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="tabCont" type="TabContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont" unique_id=1772370539]
+layout_mode = 2
+tab_alignment = 1
+current_tab = 1
+use_hidden_tabs_for_min_size = true
+tab_focus_mode = 0
+
+[node name="Game" type="VBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont" unique_id=1194545501]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+metadata/_tab_index = 0
+
+[node name="Audio" type="VBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont" unique_id=247616464]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio" unique_id=1761053379]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="vCont1" type="VBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer" unique_id=401328673]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1" unique_id=295895306]
+layout_mode = 2
+text = "Master volume"
+label_settings = SubResource("LabelSettings_60pki")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1" unique_id=655779406]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="masterSlider" type="HSlider" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1/HBoxContainer" unique_id=618940411]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+focus_mode = 0
+min_value = -20.0
+max_value = 6.0
+step = 0.5
+
+[node name="backBtn" parent="bg/centerCont/panelCont/VBoxContainer" unique_id=1305199173 instance=ExtResource("2_x3rkd")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+click_sound = ExtResource("3_i7j30")
+hover_sound = ExtResource("4_j06wm")
+click_volume = -7.0
+hover_volume = -20.0
+
+[connection signal="value_changed" from="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1/HBoxContainer/masterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="pressed" from="bg/centerCont/panelCont/VBoxContainer/backBtn" to="." method="_on_back_btn_pressed"]

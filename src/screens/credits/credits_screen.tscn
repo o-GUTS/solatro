@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://b25njyhxhmu25"]
+
+[ext_resource type="Script" uid="uid://btkuhu0ihfme5" path="res://src/screens/credits/credits_screen.gd" id="1_x5yqr"]
+[ext_resource type="FontFile" uid="uid://cjydvw866t23k" path="res://assets/UbuntuMono-R.ttf" id="2_q1aq0"]
+[ext_resource type="PackedScene" uid="uid://tvwxv6gxhhdt" path="res://src/ui/sound_button.tscn" id="3_qui2d"]
+[ext_resource type="AudioStream" uid="uid://cw3dlwc8vicug" path="res://assets/sounds/tarot1.ogg" id="4_wkcn3"]
+[ext_resource type="AudioStream" uid="uid://xa6227o1ggyk" path="res://assets/sounds/generic1.ogg" id="5_0halg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q1aq0"]
+font = ExtResource("2_q1aq0")
+font_size = 38
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_435xm"]
+bg_color = Color(0.35368666, 0.5919998, 0.5980896, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmrd6"]
+bg_color = Color(0.23921569, 0.43137255, 0.43529412, 1)
+
+[node name="credits_screen" type="Control" unique_id=2095514978]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x5yqr")
+
+[node name="bg" type="ColorRect" parent="." unique_id=304449734]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.3647059, 0.29411766, 0.44313726, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="bg" unique_id=1697963873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="bg/CenterContainer" unique_id=1602828933]
+layout_mode = 2
+theme_override_constants/separation = 311
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/VBoxContainer2" unique_id=1988479476]
+layout_mode = 2
+theme_override_constants/separation = 84
+
+[node name="Label" type="Label" parent="bg/CenterContainer/VBoxContainer2/VBoxContainer" unique_id=1984144646]
+layout_mode = 2
+text = "This project is open source and can be found in: https://github.com/o-GUTS/solatro"
+label_settings = SubResource("LabelSettings_q1aq0")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="bg/CenterContainer/VBoxContainer2/VBoxContainer" unique_id=1645007078]
+layout_mode = 2
+text = "Solatro is a original idea by TechDweeb (https://www.youtube.com/@TechDweeb)"
+label_settings = SubResource("LabelSettings_q1aq0")
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="bg/CenterContainer/VBoxContainer2/VBoxContainer" unique_id=1956337830]
+layout_mode = 2
+text = "The card textures are made by Hazmat Game Studios (https://itch.io/profile/hazmat-game-studios)"
+label_settings = SubResource("LabelSettings_q1aq0")
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="bg/CenterContainer/VBoxContainer2/VBoxContainer" unique_id=403805769]
+layout_mode = 2
+text = "The sound effects are from Balatro (https://www.playbalatro.com)"
+label_settings = SubResource("LabelSettings_q1aq0")
+horizontal_alignment = 1
+
+[node name="go_back_btn" parent="bg/CenterContainer/VBoxContainer2" unique_id=1759141151 instance=ExtResource("3_qui2d")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = SubResource("StyleBoxFlat_435xm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kmrd6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kmrd6")
+text = "GO BACK"
+click_sound = ExtResource("4_wkcn3")
+hover_sound = ExtResource("5_0halg")
+click_volume = -7.0
+hover_volume = -20.0
+
+[connection signal="pressed" from="bg/CenterContainer/VBoxContainer2/go_back_btn" to="." method="_on_go_back_btn_pressed"]

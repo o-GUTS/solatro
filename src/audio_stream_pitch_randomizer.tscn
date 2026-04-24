@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://gfmh2mufqyjw"]
+
+[ext_resource type="Script" uid="uid://cik8tjymn2dt0" path="res://src/audio_stream_pitch_randomizer.gd" id="1_vh2ms"]
+
+[node name="AudioStreamPitchRandomizer" type="AudioStreamPlayer"]
+max_polyphony = 25
+script = ExtResource("1_vh2ms")

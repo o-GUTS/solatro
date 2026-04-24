@@ -1,0 +1,455 @@
+[gd_scene format=3 uid="uid://lgpdifqvpdlf"]
+
+[ext_resource type="Script" uid="uid://b7wd1ibvb403i" path="res://src/ui/custom_left_panel.gd" id="1_3m8h4"]
+[ext_resource type="PackedScene" uid="uid://chl8x0dnk0rwa" path="res://src/ui/container/bg_container.tscn" id="2_3m8h4"]
+[ext_resource type="FontFile" uid="uid://cjydvw866t23k" path="res://assets/UbuntuMono-R.ttf" id="3_rx7qm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s2r43"]
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+border_width_bottom = 1
+border_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bp6ht"]
+bg_color = Color(0.18431373, 0.38039216, 0.7137255, 1)
+border_width_bottom = 1
+border_color = Color(0.09019608, 0.24313726, 0.40392157, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_poeoy"]
+font_size = 50
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_offset = Vector2(2.8, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c7q3h"]
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+border_width_bottom = 1
+border_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_id44t"]
+font_size = 23
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_offset = Vector2(2.8, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4fdw"]
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+border_width_bottom = 1
+border_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_ur7o1"]
+font_size = 50
+font_color = Color(0.9647059, 0.28235295, 0.2784314, 1)
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_offset = Vector2(2.8, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hdex4"]
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+border_width_bottom = 1
+border_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_0hctq"]
+font_size = 30
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_offset = Vector2(2.8, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dtnm"]
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+border_width_bottom = 1
+border_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_m4556"]
+font = ExtResource("3_rx7qm")
+font_size = 35
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_offset = Vector2(2.8, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mm3up"]
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+border_width_bottom = 1
+border_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_ratqb"]
+font_size = 25
+shadow_size = 7
+shadow_color = Color(0, 0, 0, 0.19215687)
+shadow_offset = Vector2(2.8, 3.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxlh2"]
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+border_width_bottom = 1
+border_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_0emos"]
+font_size = 40
+font_color = Color(0.27450982, 0.52156866, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rmjb"]
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+border_width_bottom = 1
+border_color = Color(0.043137256, 0.10980392, 0.10980392, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfhga"]
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+border_width_bottom = 1
+border_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_jvsqv"]
+font_size = 40
+font_color = Color(0.9647059, 0.28235295, 0.2784314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43xqx"]
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+border_width_bottom = 1
+border_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 7
+corner_radius_top_right = 7
+corner_radius_bottom_right = 7
+corner_radius_bottom_left = 7
+anti_aliasing = false
+
+[node name="customLeftPanel" type="PanelContainer" unique_id=1179055856]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 453.0
+grow_vertical = 2
+script = ExtResource("1_3m8h4")
+
+[node name="bgContainer" parent="." unique_id=1765973108 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s2r43")
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+shadow_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="bgContainer" unique_id=1745661669]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="verticalContainer" type="VBoxContainer" parent="bgContainer/MarginContainer" unique_id=1953733626]
+layout_mode = 2
+
+[node name="bgContainer" parent="bgContainer/MarginContainer/verticalContainer" unique_id=1777450570 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bp6ht")
+bg_color = Color(0.18431373, 0.38039216, 0.7137255, 1)
+shadow_color = Color(0.09019608, 0.24313726, 0.40392157, 1)
+corner_radius = 7
+
+[node name="hCont1" type="HBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer" unique_id=466686727]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer/hCont1" unique_id=1570947776]
+layout_mode = 2
+text = "Round"
+label_settings = SubResource("LabelSettings_poeoy")
+
+[node name="currentRoundLabel" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer/hCont1" unique_id=23810841]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_poeoy")
+
+[node name="bgContainer2" parent="bgContainer/MarginContainer/verticalContainer" unique_id=234562503 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c7q3h")
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+shadow_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius = 7
+
+[node name="hCont2" type="HBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer2" unique_id=1429516470]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer2/hCont2" unique_id=813653928]
+layout_mode = 2
+
+[node name="label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer2/hCont2/VBoxContainer" unique_id=1605491808]
+layout_mode = 2
+text = "Score at least"
+label_settings = SubResource("LabelSettings_id44t")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer2/hCont2/VBoxContainer" unique_id=2030644257]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="bgContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer2/hCont2/VBoxContainer/MarginContainer" unique_id=93178247 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_f4fdw")
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+shadow_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius = 7
+
+[node name="scoreTargetLabel" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer2/hCont2/VBoxContainer/MarginContainer/bgContainer" unique_id=1139019337]
+unique_name_in_owner = true
+layout_mode = 2
+text = "25"
+label_settings = SubResource("LabelSettings_ur7o1")
+horizontal_alignment = 1
+
+[node name="bgContainer3" parent="bgContainer/MarginContainer/verticalContainer" unique_id=1235654053 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hdex4")
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+shadow_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer3" unique_id=206969594]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="hCont3" type="HBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer3/MarginContainer" unique_id=2124183931]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer3/MarginContainer/hCont3" unique_id=831330255]
+layout_mode = 2
+theme_override_constants/separation = -5
+alignment = 1
+
+[node name="Label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer3/MarginContainer/hCont3/VBoxContainer" unique_id=459671561]
+layout_mode = 2
+text = "Current  "
+label_settings = SubResource("LabelSettings_0hctq")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer3/MarginContainer/hCont3/VBoxContainer" unique_id=1854585175]
+layout_mode = 2
+text = "score  "
+label_settings = SubResource("LabelSettings_0hctq")
+horizontal_alignment = 1
+
+[node name="bgContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer3/MarginContainer/hCont3" unique_id=465390203 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_5dtnm")
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+shadow_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius = 7
+
+[node name="currentScoreLabel" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer3/MarginContainer/hCont3/bgContainer" unique_id=1950297020]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_m4556")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bgContainer/MarginContainer/verticalContainer" unique_id=1215061772]
+layout_mode = 2
+alignment = 1
+
+[node name="bgContainer2" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer" unique_id=769326037 instance=ExtResource("2_3m8h4")]
+custom_minimum_size = Vector2(123, 117)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mm3up")
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+shadow_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer2" unique_id=98313825]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer2/MarginContainer" unique_id=215801766]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer2/MarginContainer/VBoxContainer" unique_id=107434727]
+layout_mode = 2
+text = "Hands"
+label_settings = SubResource("LabelSettings_ratqb")
+horizontal_alignment = 1
+
+[node name="bgContainer" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer2/MarginContainer/VBoxContainer" unique_id=515010871 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xxlh2")
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+shadow_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius = 7
+
+[node name="handsContLabel" type="Label" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer2/MarginContainer/VBoxContainer/bgContainer" unique_id=44275891]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_0emos")
+horizontal_alignment = 1
+
+[node name="bgContainer" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer" unique_id=598936589 instance=ExtResource("2_3m8h4")]
+custom_minimum_size = Vector2(123, 117)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7rmjb")
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+shadow_color = Color(0.043137256, 0.10980392, 0.10980392, 1)
+corner_radius = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer" unique_id=855404750]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer/MarginContainer" unique_id=1335657567]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer/MarginContainer/VBoxContainer2" unique_id=1471620948]
+layout_mode = 2
+text = "Discards"
+label_settings = SubResource("LabelSettings_ratqb")
+horizontal_alignment = 1
+
+[node name="bgContainer" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer/MarginContainer/VBoxContainer2" unique_id=876205934 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mfhga")
+bg_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+shadow_color = Color(0.18431373, 0.2509804, 0.2509804, 1)
+corner_radius = 7
+
+[node name="discardsContLabel" type="Label" parent="bgContainer/MarginContainer/verticalContainer/HBoxContainer/bgContainer/MarginContainer/VBoxContainer2/bgContainer" unique_id=2040468444]
+unique_name_in_owner = true
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_jvsqv")
+horizontal_alignment = 1
+
+[node name="bgContainer4" parent="bgContainer/MarginContainer/verticalContainer" unique_id=377627756 instance=ExtResource("2_3m8h4")]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_43xqx")
+bg_color = Color(0.10980392, 0.1764706, 0.1764706, 1)
+shadow_color = Color(0.03137255, 0.101960786, 0.101960786, 1)
+corner_radius = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4" unique_id=2073073718]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer" unique_id=1355599365]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer" unique_id=2100088203]
+layout_mode = 2
+text = "Bonuses"
+label_settings = SubResource("LabelSettings_ratqb")
+horizontal_alignment = 1
+
+[node name="gCont" type="GridContainer" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer" unique_id=510193795]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="extraCardBonusBtn" type="Button" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer/gCont" unique_id=1389815196]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Extra Card"
+
+[node name="extraDiscardBonusBtn" type="Button" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer/gCont" unique_id=994158824]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Extra Discard"
+
+[node name="pockePointsBonusBtn" type="Button" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer/gCont" unique_id=1984747995]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Pocket Points"
+
+[node name="extraHandBonusBtn" type="Button" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer/gCont" unique_id=365443810]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Extra Hand"
+
+[node name="doubleScoreBonusBtn" type="Button" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer/gCont" unique_id=2104229147]
+unique_name_in_owner = true
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "Double Score"
+
+[node name="quit_btn" type="Button" parent="bgContainer/MarginContainer/verticalContainer" unique_id=1801701814]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 35
+text = "QUIT"
+
+[connection signal="pressed" from="bgContainer/MarginContainer/verticalContainer/quit_btn" to="." method="_on_quit_btn_pressed"]

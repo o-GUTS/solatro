@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d4e24l3ib0x5s"]
+
+[ext_resource type="Script" uid="uid://bsl0jiqtl84ao" path="res://src/transition_manager/screen_transition_manager.gd" id="1_wn5k5"]
+
+[node name="screen_transition_manager" type="Node" unique_id=1150354445 groups=["screen_transition_man"]]
+script = ExtResource("1_wn5k5")

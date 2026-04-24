@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://c1rawerruwvly"]
+
+[ext_resource type="PackedScene" uid="uid://lgpdifqvpdlf" path="res://src/ui/custom_left_panel.tscn" id="1_hfv22"]
+[ext_resource type="Script" uid="uid://mkj7fjavbaqt" path="res://src/screens/game/game_screen.gd" id="1_stvag"]
+[ext_resource type="PackedScene" uid="uid://ctnw6t40kbxjw" path="res://src/ui/container/card_container.tscn" id="2_stvag"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_q36ux"]
+font_size = 35
+outline_size = 8
+outline_color = Color(0.1728327, 0.17283267, 0.17283267, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
+bg_color = Color(0.4627451, 0.5803922, 0.93333334, 0.64705884)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tefeu"]
+bg_color = Color(0.4627451, 0.5803922, 0.93333334, 0.64705884)
+
+[sub_resource type="Theme" id="Theme_8jqa3"]
+Button/styles/hover = SubResource("StyleBoxFlat_tbgi4")
+Button/styles/normal = SubResource("StyleBoxFlat_tefeu")
+
+[sub_resource type="LabelSettings" id="LabelSettings_23dae"]
+font_size = 34
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
+bg_color = Color(0.6117647, 0.13725491, 0.1882353, 0.69411767)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tipki"]
+bg_color = Color(0.6117647, 0.13725491, 0.1882353, 0.69411767)
+
+[sub_resource type="Theme" id="Theme_abb3i"]
+Button/styles/hover = SubResource("StyleBoxFlat_o6xl0")
+Button/styles/normal = SubResource("StyleBoxFlat_tipki")
+
+[node name="game_screen" type="Control" unique_id=1334327392]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_stvag")
+
+[node name="bg" type="ColorRect" parent="." unique_id=1599839991]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0.3647059, 0.29411766, 0.44313726, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg" unique_id=1552470873]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="leftPanel" parent="bg/HBoxContainer" unique_id=1179055856 instance=ExtResource("1_hfv22")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="vCont" type="VBoxContainer" parent="bg/HBoxContainer" unique_id=1992062888]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="hand_label" type="Label" parent="bg/HBoxContainer/vCont" unique_id=2021332258]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_q36ux")
+horizontal_alignment = 1
+
+[node name="cardContainer" parent="bg/HBoxContainer/vCont" unique_id=1226801860 instance=ExtResource("2_stvag")]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="hCont" type="HBoxContainer" parent="bg/HBoxContainer/vCont" unique_id=1119832598]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="playHandButton" type="Button" parent="bg/HBoxContainer/vCont/hCont" unique_id=1966601160]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = SubResource("Theme_8jqa3")
+theme_override_font_sizes/font_size = 70
+text = "Play Hand"
+
+[node name="MarginContainer" type="MarginContainer" parent="bg/HBoxContainer/vCont/hCont" unique_id=1382528490]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="sortCont" type="VBoxContainer" parent="bg/HBoxContainer/vCont/hCont/MarginContainer" unique_id=555760307]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="bg/HBoxContainer/vCont/hCont/MarginContainer/sortCont" unique_id=485004203]
+layout_mode = 2
+text = "Sort Hand"
+label_settings = SubResource("LabelSettings_23dae")
+horizontal_alignment = 1
+
+[node name="hCont" type="HBoxContainer" parent="bg/HBoxContainer/vCont/hCont/MarginContainer/sortCont" unique_id=1216547440]
+layout_mode = 2
+alignment = 1
+
+[node name="sortByRankBtn" type="Button" parent="bg/HBoxContainer/vCont/hCont/MarginContainer/sortCont/hCont" unique_id=973529775]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Rank"
+
+[node name="sortBySuitBtn" type="Button" parent="bg/HBoxContainer/vCont/hCont/MarginContainer/sortCont/hCont" unique_id=426122489]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 25
+text = "Suit"
+
+[node name="discardButton" type="Button" parent="bg/HBoxContainer/vCont/hCont" unique_id=698888975]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 96)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme = SubResource("Theme_abb3i")
+theme_override_font_sizes/font_size = 70
+text = "Discard"
+
+[node name="Control" type="Control" parent="bg/HBoxContainer/vCont" unique_id=2089233119]
+custom_minimum_size = Vector2(0, 107)
+layout_mode = 2
+
+[connection signal="pressed" from="bg/HBoxContainer/vCont/hCont/playHandButton" to="." method="_on_play_hand_button_pressed"]
+[connection signal="pressed" from="bg/HBoxContainer/vCont/hCont/MarginContainer/sortCont/hCont/sortByRankBtn" to="." method="_on_sort_by_rank_btn_pressed"]
+[connection signal="pressed" from="bg/HBoxContainer/vCont/hCont/MarginContainer/sortCont/hCont/sortBySuitBtn" to="." method="_on_sort_by_suit_btn_pressed"]
+[connection signal="pressed" from="bg/HBoxContainer/vCont/hCont/discardButton" to="." method="_on_discard_button_pressed"]

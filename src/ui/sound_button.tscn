@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://tvwxv6gxhhdt"]
+
+[ext_resource type="Script" uid="uid://ckbdse32leh74" path="res://src/ui/sound_button.gd" id="1_x4peo"]
+
+[node name="soundButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+focus_mode = 0
+script = ExtResource("1_x4peo")
+
+[node name="clickStream" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="hoverStream" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
