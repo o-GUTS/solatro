@@ -51,49 +51,30 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="tabCont" type="TabContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont" unique_id=1772370539]
-layout_mode = 2
-tab_alignment = 1
-current_tab = 1
-use_hidden_tabs_for_min_size = true
-tab_focus_mode = 0
-
-[node name="Game" type="VBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont" unique_id=1194545501]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-metadata/_tab_index = 0
-
-[node name="Audio" type="VBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont" unique_id=247616464]
-layout_mode = 2
-metadata/_tab_index = 1
-
-[node name="MarginContainer" type="MarginContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio" unique_id=1761053379]
+[node name="MarginContainer" type="MarginContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont" unique_id=1761053379]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="vCont1" type="VBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer" unique_id=401328673]
+[node name="vCont1" type="VBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/MarginContainer" unique_id=401328673]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Label" type="Label" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1" unique_id=295895306]
+[node name="Label" type="Label" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/MarginContainer/vCont1" unique_id=295895306]
 layout_mode = 2
 text = "Master volume"
 label_settings = SubResource("LabelSettings_60pki")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1" unique_id=655779406]
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/MarginContainer/vCont1" unique_id=655779406]
 layout_mode = 2
 size_flags_vertical = 4
 alignment = 1
 
-[node name="masterSlider" type="HSlider" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1/HBoxContainer" unique_id=618940411]
+[node name="masterSlider" type="HSlider" parent="bg/centerCont/panelCont/VBoxContainer/marginCont/MarginContainer/vCont1/HBoxContainer" unique_id=618940411]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -115,5 +96,5 @@ hover_sound = ExtResource("4_j06wm")
 click_volume = -7.0
 hover_volume = -20.0
 
-[connection signal="value_changed" from="bg/centerCont/panelCont/VBoxContainer/marginCont/tabCont/Audio/MarginContainer/vCont1/HBoxContainer/masterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="bg/centerCont/panelCont/VBoxContainer/marginCont/MarginContainer/vCont1/HBoxContainer/masterSlider" to="." method="_on_master_slider_value_changed"]
 [connection signal="pressed" from="bg/centerCont/panelCont/VBoxContainer/backBtn" to="." method="_on_back_btn_pressed"]
