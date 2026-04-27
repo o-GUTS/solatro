@@ -17,6 +17,8 @@ enum BonusPrices {
 }
 
 const card_suits: Array[String] = ["h", "d", "c", "s"]
+const full_suit_names: Dictionary[String, String] = {"h": "Hearts", "d": "Diamonds", "s": "Spades", "c": "Clubs"}
+
 const card_numbers: Array[String] = [
     "1", "2", "3", "4", "5", "6", "7",
     "8", "9", "10", "11", "12", "13"

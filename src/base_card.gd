@@ -26,12 +26,11 @@ func setup(new_value: String) -> void:
     value = new_value
     name = new_value
 
-    const suits: Dictionary[String, String] = {"h": "Hearts", "d": "Diamonds", "s": "Spades", "c": "Clubs"}
     var suit: String = new_value[-1]
 
     const textures_folder_path: String = "res://assets/Hand Drawn Cards/"
     var texture_path: String = "%s/%s/%s%s.png" % [
-        textures_folder_path, suits.get(suit),
+        textures_folder_path, Definitions.full_suit_names.get(suit),
         new_value.substr(0, new_value.length() - 1), suit
     ]
 
