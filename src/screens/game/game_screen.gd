@@ -28,7 +28,7 @@ func compute_score(cards: Array[String]) -> Dictionary[String, int]:
     if cards.size() == 1:
         return {"High Card": Definitions.HandScores.high_card}
 
-    var result: Dictionary[String, int] = {"": 0}
+    var result: Dictionary[String, int] = {}
 
     var suits: Array[String] = []
     var ranks: Array[int] = []
@@ -139,7 +139,10 @@ func handle_end_of_round() -> void:
 
 func update_hand_type_label() -> void:
     var result: Dictionary[String, int] = compute_score(card_container.selected_cards)
-    hand_label.text = result.keys()[0]
+    if result.keys().size() > 0:
+        hand_label.text = result.keys()[0]
+    else:
+        hand_label.text = ""
 
 
 func _on_bonus_btn_pressed(bonus_type: Definitions.BonusTypes) -> void:
@@ -191,6 +194,7 @@ func _on_play_hand_button_pressed() -> void:
 
     GlobalState.hands_left -= 1
     left_panel.update_all_visuals()
+    update_hand_type_label()
 
     if GlobalState.hands_left <= 0:
         handle_end_of_round()
