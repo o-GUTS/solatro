@@ -125,6 +125,22 @@ func get_highest_poker_hand(card_names: Array[String]) -> PokerHand:
         return null
 
 
+func get_highest_poker_hand_with_joker(card_names: Array[String]) -> PokerHand:
+    var highest_hand := PokerHand.new("", 0)
+
+    #NOTE Brute force, but works for now
+    for suit: String in Definitions.card_suits:
+        for number: String in Definitions.card_numbers:
+            var card_names_copy: Array[String] = card_names.duplicate()
+            card_names_copy.append("%s%s" % [number, suit])
+
+            var new_hand: PokerHand = get_highest_poker_hand(card_names_copy)
+            if new_hand.value > highest_hand.value:
+                highest_hand = new_hand
+
+    return highest_hand
+
+
 func handle_end_of_round() -> void:
     if (GlobalState.current_score >= GlobalState.current_score_target) or GlobalState.shield_activated:
         GlobalState.current_cash = clamp(GlobalState.current_score - GlobalState.current_score_target, 0, INF)
