@@ -24,11 +24,10 @@ func start_new_round() -> void:
     left_panel.update_all_visuals()
 
 
-func compute_score(cards: Array[String]) -> Dictionary[String, int]:
-    if cards.size() == 1:
-        return {"High Card": Definitions.HandScores.high_card}
-
-    var result: Dictionary[String, int] = {}
+func get_highest_poker_hand(card_names: Array[String]) -> PokerHand:
+    if card_names.is_empty(): return null
+    elif card_names.size() == 1:
+        return PokerHand.new("High Card", Definitions.HandScores.high_card)
 
     var suits: Array[String] = []
     var ranks: Array[int] = []
@@ -39,87 +38,91 @@ func compute_score(cards: Array[String]) -> Dictionary[String, int]:
     var has_straight: bool = false
     var has_flush: bool = false
     var has_full_house: bool = false
-    var has_fours_of_a_kind: bool = false
+    var has_four_of_a_kind: bool = false
     var is_royal: bool = false
 
-    for card_value: String in cards:
-        suits.append(card_value[-1])
-        ranks.append(card_value.substr(0, card_value.length() - 1).to_int())
+    for index in range(card_names.size()):
+        var card_value: String = card_names[index]
 
-    has_flush = cards.size() == Definitions.max_selected_cards and suits.all(func(elem: String) -> bool: return elem == suits[0])
+        var suit: String = card_value[-1]
+        var rank: int = card_value.substr(0, card_value.length() - 1).to_int()
+
+        suits.append(suit)
+        ranks.append(rank)
 
     ranks.sort()
 
-    # Search royal straight
-    if ranks.has(1):
-        var ranks_copy: Array[int] = ranks.duplicate()
-        ranks_copy.remove_at(0)
-        ranks_copy.append(14)
+    if card_names.size() == Definitions.max_selected_cards:
+        has_flush = suits.all(func(elem: String) -> bool: return elem == suits[0])
 
-        for index: int in range(1, cards.size()):
-            if (not ranks_copy[index] - 1 == ranks_copy[index - 1]) or cards.size() != Definitions.max_selected_cards:
-                has_straight = false
-                is_royal = false
-                break
-
-            has_straight = true
+        has_straight = true
+        # Search royal straight
+        if ranks.has(1): # Has Ace
             is_royal = true
 
-    # Search normal straight
-    if not has_straight:
-        for index: int in range(1, cards.size()):
-            if (not ranks[index] - 1 == ranks[index - 1]) or cards.size() != Definitions.max_selected_cards:
-                has_straight = false
-                break
+            var ranks_copy: Array[int] = ranks.duplicate()
+            ranks_copy.remove_at(0)
+            ranks_copy.append(14)
 
-            has_straight = true
+            for index: int in range(1, ranks_copy.size()):
+                if not (ranks_copy[index - 1] == ranks_copy[index] - 1):
+                    has_straight = false
+                    is_royal = false
+                    break
+        # Search normal straight
+        else:
+            for index: int in range(1, ranks.size()):
+                if ranks[index - 1] != ranks[index] - 1:
+                    has_straight = false
+                    break
 
     var paterns: Dictionary[int, int] = {}
-    for index: int in range(ranks.size()):
-        if not paterns.has(ranks[index]):
-            paterns.set(ranks[index], 1)
+    for rank: int in ranks:
+        if paterns.has(rank):
+            paterns[rank] += 1
         else:
-            paterns[ranks[index]] += 1
+            paterns.set(rank, 1)
 
-    for key: int in paterns.keys():
-        if paterns[key] == 2:
-            if has_pair:
-                has_two_pair = true
-            if has_three_of_a_kind:
-                has_full_house = true
+    # paterns count the number of times each card appears,
+    # quantities are the number of times sorted
+    var quantities: Array[int] = paterns.values()
+    quantities.sort()
+    for count: int in quantities:
+        match count:
+            2:
+                if has_pair:
+                    has_two_pair = true
+                has_pair = true
+            3:
+                has_three_of_a_kind = true
+                if has_pair:
+                    has_full_house = true
+            4:
+                has_four_of_a_kind = true
 
-            has_pair = true
-
-        elif paterns[key] == 3:
-            has_three_of_a_kind = true
-            if has_pair:
-                has_full_house = true
-
-        elif paterns[key] == 4:
-            has_fours_of_a_kind = true
 
     if has_straight and has_flush and is_royal:
-        result = {"Royal Flush": Definitions.HandScores.royal_flush}
+        return PokerHand.new("Royal Flush", Definitions.HandScores.royal_flush)
     elif has_straight and has_flush:
-        result = {"Straight Flush": Definitions.HandScores.straight_flush}
+        return PokerHand.new("Straight Flush", Definitions.HandScores.straight_flush)
     elif has_straight:
-        result = {"Straight": Definitions.HandScores.straight}
+        return PokerHand.new("Straight", Definitions.HandScores.straight)
     elif has_flush:
-        result = {"Flush": Definitions.HandScores.flush}
-    elif has_fours_of_a_kind:
-        result = {"Four of a Kind": Definitions.HandScores.four_of_a_kind}
+        return PokerHand.new("Flush", Definitions.HandScores.flush)
+    elif has_four_of_a_kind:
+        return PokerHand.new("Four of a Kind", Definitions.HandScores.four_of_a_kind)
     elif has_full_house:
-        result = {"Full House": Definitions.HandScores.full_house}
+        return PokerHand.new("Full House", Definitions.HandScores.full_house)
     elif has_three_of_a_kind:
-        result = {"Three of a Kind": Definitions.HandScores.trhee_of_a_kind}
+        return PokerHand.new("Three of a Kind", Definitions.HandScores.trhee_of_a_kind)
     elif has_two_pair:
-        result = {"Two Pair": Definitions.HandScores.two_pair}
+        return PokerHand.new("Two Pair", Definitions.HandScores.two_pair)
     elif has_pair:
-        result = {"Pair": Definitions.HandScores.pair}
-    elif cards.size() > 0:
-        result = {"High Card": Definitions.HandScores.high_card}
-
-    return result
+        return PokerHand.new("Pair", Definitions.HandScores.pair)
+    elif card_names.size() > 0:
+        return PokerHand.new("High Card", Definitions.HandScores.high_card)
+    else:
+        return null
 
 
 func handle_end_of_round() -> void:
@@ -138,11 +141,11 @@ func handle_end_of_round() -> void:
 
 
 func update_hand_type_label() -> void:
-    var result: Dictionary[String, int] = compute_score(card_container.selected_cards)
-    if result.keys().size() > 0:
-        hand_label.text = result.keys()[0]
-    else:
+    var result: PokerHand = get_highest_poker_hand(card_container.selected_cards)
+    if result == null:
         hand_label.text = ""
+    else:
+        hand_label.text = result.name
 
 
 func _on_bonus_btn_pressed(bonus_type: Definitions.BonusTypes) -> void:
@@ -181,16 +184,16 @@ func _on_play_hand_button_pressed() -> void:
     for card_value: String in card_container.selected_cards:
         card_container.discard_card(card_value)
 
-    var result: Dictionary = compute_score(card_container.selected_cards)
+    var result: PokerHand = get_highest_poker_hand(card_container.selected_cards)
     card_container.selected_cards.clear()
 
     card_container.draw_random_cards(GlobalState.hand_size - card_container.current_hand.size())
 
     if GlobalState.double_points_actived:
-        GlobalState.current_score += result.values()[0] * 2
+        GlobalState.current_score += result.value * 2
         GlobalState.double_points_actived = false
     else:
-        GlobalState.current_score += result.values()[0]
+        GlobalState.current_score += result.value
 
     GlobalState.hands_left -= 1
     left_panel.update_all_visuals()
@@ -206,3 +209,12 @@ func _on_sort_by_rank_btn_pressed() -> void:
 
 func _on_sort_by_suit_btn_pressed() -> void:
     card_container.current_sort_type = card_container.SortType.by_suit
+
+
+class PokerHand:
+    var name: String = ""
+    var value: int = 0
+
+    func _init(new_name: String, new_value: int) -> void:
+        self.name = new_name
+        self.value = new_value
