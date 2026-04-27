@@ -94,12 +94,17 @@ func sort_cards() -> void:
 
     if current_sort_type == SortType.by_rank:
         sorted_nodes.sort_custom(
-            func(a: BaseCard, b: BaseCard) -> bool: return a.value.naturalnocasecmp_to(b.value) < 0
+            func(a: BaseCard, b: BaseCard) -> bool: return a.value.naturalnocasecmp_to(b.value) > 0
         )
     else:
         sorted_nodes.sort_custom(
+            func(a: BaseCard, b: BaseCard) -> bool: return a.value.naturalnocasecmp_to(b.value) > 0
+        )
+
+        sorted_nodes.sort_custom(
             func(a: BaseCard, b: BaseCard) -> bool: return str(a.value)[-1].naturalnocasecmp_to(str(b.value)[-1]) < 0
         )
+
 
     for node in get_children():
         remove_child(node)
