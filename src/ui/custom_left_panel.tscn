@@ -156,6 +156,10 @@ corner_radius_bottom_right = 7
 corner_radius_bottom_left = 7
 anti_aliasing = false
 
+[sub_resource type="LabelSettings" id="LabelSettings_s2r43"]
+font_size = 26
+font_color = Color(0.28891084, 0.7800996, 0.41343835, 1)
+
 [node name="customLeftPanel" type="PanelContainer" unique_id=1179055856]
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -193,7 +197,7 @@ alignment = 1
 
 [node name="Label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer/hCont1" unique_id=1570947776]
 layout_mode = 2
-text = "Round"
+text = "Round "
 label_settings = SubResource("LabelSettings_poeoy")
 
 [node name="currentRoundLabel" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer/hCont1" unique_id=23810841]
@@ -442,6 +446,14 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "Double Score"
+
+[node name="shield_label" type="Label" parent="bgContainer/MarginContainer/verticalContainer/bgContainer4/MarginContainer/VBoxContainer" unique_id=917100984]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Shield activated"
+label_settings = SubResource("LabelSettings_s2r43")
+horizontal_alignment = 1
 
 [node name="quit_btn" type="Button" parent="bgContainer/MarginContainer/verticalContainer" unique_id=1801701814]
 unique_name_in_owner = true

@@ -20,6 +20,7 @@ enum LABELS {
 @onready var pocke_points_bonus_btn: Button = %pockePointsBonusBtn
 @onready var extra_hand_bonus_btn: Button = %extraHandBonusBtn
 @onready var double_score_bonus_btn: Button = %doubleScoreBonusBtn
+@onready var shield_label: Label = %shield_label
 @onready var quit_btn: Button = %quit_btn
 
 
@@ -52,9 +53,10 @@ func update_all_visuals() -> void:
     change_label(LABELS.hands_count, "%s" % [GlobalState.hands_left])
     change_label(LABELS.discards_count, "%s" % [GlobalState.discards_left])
 
-    #TEMP
     if GlobalState.shield_activated:
-        current_round_label.text += " SHIELD"
+        shield_label.show()
+    else:
+        shield_label.hide()
 
     extra_card_bonus_btn.disabled = true
     extra_discard_bonus_btn.disabled = true

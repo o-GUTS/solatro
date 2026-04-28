@@ -86,7 +86,7 @@ func _on_buy_btn_pressed(btn: Button, bonus_type: Definitions.BonusTypes) -> voi
         Definitions.BonusTypes.shield:
              if GlobalState.current_cash - Definitions.BonusPrices.shield >= 0:
                 GlobalState.shield_activated = true
-                GlobalState.current_cash -= Definitions.BonusPrices.extra_card
+                GlobalState.current_cash -= Definitions.BonusPrices.shield
                 btn.disabled = true
 
     current_cash_label.text = str(GlobalState.current_cash)

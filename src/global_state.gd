@@ -46,7 +46,6 @@ func prepare_state_to_next_round() -> void:
     current_score = 0
     current_score_target += Definitions.score_target_increment
 
-    shield_activated = false
     double_points_actived = false
 
     has_joker = false
