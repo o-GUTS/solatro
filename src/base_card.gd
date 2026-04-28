@@ -5,7 +5,7 @@ extends Control
 @onready var texture_pivot: Control = %texturePivot
 @onready var texture: Sprite2D = %texture
 
-signal gui_input_fired(card: BaseCard,event: InputEvent)
+signal gui_input_fired(card: BaseCard, event: InputEvent)
 
 const max_angle_rad := Vector2(
     deg_to_rad(10), deg_to_rad(10)
@@ -25,6 +25,10 @@ func _ready() -> void:
 func setup(new_value: String) -> void:
     value = new_value
     name = new_value
+
+    if value == "joker":
+        texture.texture = load("res://assets/Hand Drawn Cards/joker.png")
+        return
 
     var suit: String = new_value[-1]
 

@@ -9,7 +9,9 @@ var current_score_target: int = Definitions.base_score_target
 var acquired_bonuses: Array[Definitions.BonusTypes] = []
 var shield_activated: bool = false
 var double_points_actived: bool = false
+
 var has_joker: bool = false
+var joker_selected: bool = false
 
 var hand_size: int = Definitions.base_hand_size
 var hands_left: int = Definitions.base_hands_count
@@ -27,7 +29,9 @@ func full_reset_state() -> void:
     acquired_bonuses.clear()
     shield_activated = false
     double_points_actived = false
+
     has_joker = false
+    joker_selected = false
 
     hand_size = Definitions.base_hand_size
     hands_left = Definitions.base_hands_count
@@ -44,7 +48,9 @@ func prepare_state_to_next_round() -> void:
 
     shield_activated = false
     double_points_actived = false
+
     has_joker = false
+    joker_selected = false
 
     hands_left = Definitions.base_hands_count
     discards_left = Definitions.base_discards_count

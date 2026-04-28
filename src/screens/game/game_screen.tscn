@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://lgpdifqvpdlf" path="res://src/ui/custom_left_panel.tscn" id="1_hfv22"]
 [ext_resource type="Script" uid="uid://mkj7fjavbaqt" path="res://src/screens/game/game_screen.gd" id="1_stvag"]
 [ext_resource type="PackedScene" uid="uid://ctnw6t40kbxjw" path="res://src/ui/container/card_container.tscn" id="2_stvag"]
+[ext_resource type="PackedScene" uid="uid://02vuq4ofl2ge" path="res://src/base_card.tscn" id="4_je8ph"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_q36ux"]
 font_size = 35
@@ -138,6 +139,15 @@ text = "Discard"
 [node name="Control" type="Control" parent="bg/HBoxContainer/vCont" unique_id=2089233119]
 custom_minimum_size = Vector2(0, 107)
 layout_mode = 2
+
+[node name="joker_indicator" parent="." unique_id=1762261797 instance=ExtResource("4_je8ph")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_left = 387.0
+offset_top = 764.0
+offset_right = 395.32
+offset_bottom = 778.0
 
 [connection signal="pressed" from="bg/HBoxContainer/vCont/hCont/playHandButton" to="." method="_on_play_hand_button_pressed"]
 [connection signal="pressed" from="bg/HBoxContainer/vCont/hCont/MarginContainer/sortCont/hCont/sortByRankBtn" to="." method="_on_sort_by_rank_btn_pressed"]

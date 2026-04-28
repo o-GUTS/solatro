@@ -3,6 +3,7 @@ extends HBoxContainer
 
 
 signal selection_changed
+signal joker_found
 
 enum SortType {
     by_suit, by_rank
@@ -35,7 +36,11 @@ func reset() -> void:
         for number: String in Definitions.card_numbers:
             draw_pile.append("%s%s" % [number, suit])
 
+    draw_pile.append("joker")
+    draw_pile.append("joker")
+
     draw_pile.shuffle()
+
     draw_random_cards(GlobalState.hand_size)
 
 
@@ -53,15 +58,23 @@ func draw_card(card_value: String) -> BaseCard:
 
 
 func draw_random_cards(quant: int = 1) -> void:
-    for x in range(quant):
-        if draw_pile.size() <= 0:
-            return
+    var counter: int = quant
+    while counter > 0:
+        if draw_pile.size() <= 0: return
 
         var card_value: String = draw_pile.pick_random()
+
+        #TODO: Joker animation
+        if card_value == "joker":
+            draw_pile.remove_at(draw_pile.find("joker"))
+            joker_found.emit()
+            continue
 
         var new_card: BaseCard = draw_card(card_value)
         assert(new_card != null, "new_card can't be null")
         draw_pile.remove_at(draw_pile.find(card_value))
+
+        counter -= 1
 
 
 func discard_card(card_value: String) -> void:
@@ -105,7 +118,6 @@ func sort_cards() -> void:
             func(a: BaseCard, b: BaseCard) -> bool: return str(a.value)[-1].naturalnocasecmp_to(str(b.value)[-1]) < 0
         )
 
-
     for node in get_children():
         remove_child(node)
     for node: BaseCard in sorted_nodes:
@@ -120,8 +132,13 @@ func _on_card_gui_input(card: BaseCard, event: InputEvent) -> void:
             card.deselect()
             selected_cards.remove_at(selected_cards.find(card.value))
 
-        elif selected_cards.size() < Definitions.max_selected_cards:
-            card.select()
-            selected_cards.append(card.value)
+        else:
+            var max_selected: int = Definitions.max_selected_cards
+            if GlobalState.joker_selected:
+                max_selected -= 1
+
+            if selected_cards.size() < max_selected:
+                card.select()
+                selected_cards.append(card.value)
 
         selection_changed.emit()

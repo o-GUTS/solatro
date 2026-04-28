@@ -1,18 +1,43 @@
 class_name GameScreen
 extends Control
 
-#TODO Jokers
 
 @onready var card_container: CardContainer = %cardContainer
 @onready var discard_button: Button = %discardButton
 @onready var play_hand_button: Button = %playHandButton
 @onready var hand_label: Label = %hand_label
 @onready var left_panel: CustomLeftPanel = %leftPanel
+@onready var joker_indicator: BaseCard = %joker_indicator
 
 
 func _ready() -> void:
     card_container.selection_changed.connect(update_hand_type_label)
     left_panel.bonus_btn_pressed.connect(_on_bonus_btn_pressed)
+
+    joker_indicator.setup("joker")
+    joker_indicator.gui_input_fired.connect(
+        func(_card: BaseCard, event: InputEvent) -> void:
+            if event.is_action_pressed(&"MOUSE_LEFT"):
+                if GlobalState.joker_selected:
+                    joker_indicator.deselect()
+                    GlobalState.joker_selected = false
+
+                elif card_container.selected_cards.size() < Definitions.max_selected_cards:
+                    joker_indicator.select()
+                    GlobalState.joker_selected = true
+
+                update_hand_type_label()
+    )
+    card_container.joker_found.connect(
+        func() -> void:
+            if GlobalState.has_joker:
+                joker_indicator.hide()
+                GlobalState.joker_selected = false
+            else:
+                joker_indicator.show()
+
+            GlobalState.has_joker = !GlobalState.has_joker
+    )
 
     start_new_round()
 
@@ -126,6 +151,8 @@ func get_highest_poker_hand(card_names: Array[String]) -> PokerHand:
 
 
 func get_highest_poker_hand_with_joker(card_names: Array[String]) -> PokerHand:
+    if card_names.is_empty(): return PokerHand.new("", 0)
+
     var highest_hand := PokerHand.new("", 0)
 
     #NOTE Brute force, but works for now
@@ -157,7 +184,12 @@ func handle_end_of_round() -> void:
 
 
 func update_hand_type_label() -> void:
-    var result: PokerHand = get_highest_poker_hand(card_container.selected_cards)
+    var result: PokerHand = null
+    if GlobalState.joker_selected:
+        result = get_highest_poker_hand_with_joker(card_container.selected_cards)
+    else:
+        result = get_highest_poker_hand(card_container.selected_cards)
+
     if result == null:
         hand_label.text = ""
     else:
@@ -187,11 +219,16 @@ func _on_discard_button_pressed() -> void:
     if GlobalState.discards_left <= 0 or !card_container.has_cards_selected():
         return
 
+    if GlobalState.joker_selected:
+        GlobalState.joker_selected = false
+        joker_indicator.deselect()
+
     card_container.discard_selected_cards()
     card_container.draw_random_cards(GlobalState.hand_size - card_container.current_hand.size())
 
     GlobalState.discards_left -= 1
     left_panel.update_all_visuals()
+    update_hand_type_label()
 
 
 func _on_play_hand_button_pressed() -> void:
@@ -200,7 +237,18 @@ func _on_play_hand_button_pressed() -> void:
     for card_value: String in card_container.selected_cards:
         card_container.discard_card(card_value)
 
-    var result: PokerHand = get_highest_poker_hand(card_container.selected_cards)
+    var result: PokerHand = null
+
+    if GlobalState.joker_selected:
+        result = get_highest_poker_hand_with_joker(card_container.selected_cards)
+
+        joker_indicator.hide()
+        joker_indicator.deselect()
+        GlobalState.has_joker = false
+        GlobalState.joker_selected = false
+    else:
+        result = get_highest_poker_hand(card_container.selected_cards)
+
     card_container.selected_cards.clear()
 
     card_container.draw_random_cards(GlobalState.hand_size - card_container.current_hand.size())
