@@ -56,6 +56,11 @@ func update_all_visuals() -> void:
     if GlobalState.shield_activated:
         current_round_label.text += " SHIELD"
 
+    extra_card_bonus_btn.disabled = true
+    extra_discard_bonus_btn.disabled = true
+    pocke_points_bonus_btn.disabled = true
+    extra_hand_bonus_btn.disabled = true
+    double_score_bonus_btn.disabled = true
     for bonus_type: Definitions.BonusTypes in GlobalState.acquired_bonuses:
         match bonus_type:
             Definitions.BonusTypes.extra_card:
