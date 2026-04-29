@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsl0jiqtl84ao" path="res://src/transition_manager/screen_transition_manager.gd" id="1_wn5k5"]
 [ext_resource type="PackedScene" uid="uid://dovasj70yxw1j" path="res://src/screens/title/title_screen.tscn" id="2_7tjix"]
+[ext_resource type="AudioStream" uid="uid://wuhg2bypu704" path="res://assets/musics/menu_music.ogg" id="3_mrtfq"]
 
 [sub_resource type="Animation" id="Animation_wn5k5"]
 length = 0.001
@@ -139,3 +140,11 @@ libraries/ = SubResource("AnimationLibrary_aru5u")
 unique_name_in_owner = true
 
 [node name="titleScreen" parent="screen_parent" unique_id=1555526027 instance=ExtResource("2_7tjix")]
+
+[node name="bg_music" type="AudioStreamPlayer" parent="." unique_id=1131178728]
+unique_name_in_owner = true
+stream = ExtResource("3_mrtfq")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true

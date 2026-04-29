@@ -44,7 +44,7 @@ grow_vertical = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="bg/CenterContainer" unique_id=1602828933]
 layout_mode = 2
-theme_override_constants/separation = 311
+theme_override_constants/separation = 220
 
 [node name="VBoxContainer" type="VBoxContainer" parent="bg/CenterContainer/VBoxContainer2" unique_id=1988479476]
 layout_mode = 2
@@ -71,6 +71,12 @@ horizontal_alignment = 1
 [node name="Label4" type="Label" parent="bg/CenterContainer/VBoxContainer2/VBoxContainer" unique_id=403805769]
 layout_mode = 2
 text = "The sound effects are from Balatro (https://www.playbalatro.com)"
+label_settings = SubResource("LabelSettings_q1aq0")
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="bg/CenterContainer/VBoxContainer2/VBoxContainer" unique_id=710848478]
+layout_mode = 2
+text = "Musics by chajamakesmusic (https://chajamakesmusic.itch.io/)"
 label_settings = SubResource("LabelSettings_q1aq0")
 horizontal_alignment = 1
 

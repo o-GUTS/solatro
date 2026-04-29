@@ -2,17 +2,19 @@
 
 [ext_resource type="Script" uid="uid://ckbdse32leh74" path="res://src/ui/sound_button.gd" id="1_x4peo"]
 
-[node name="soundButton" type="Button"]
+[node name="soundButton" type="Button" unique_id=331299867]
 offset_right = 8.0
 offset_bottom = 8.0
 focus_mode = 0
 script = ExtResource("1_x4peo")
 
-[node name="clickStream" type="AudioStreamPlayer" parent="."]
+[node name="clickStream" type="AudioStreamPlayer" parent="." unique_id=95774450]
 unique_name_in_owner = true
+bus = &"Effects"
 
-[node name="hoverStream" type="AudioStreamPlayer" parent="."]
+[node name="hoverStream" type="AudioStreamPlayer" parent="." unique_id=1664477437]
 unique_name_in_owner = true
+bus = &"Effects"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
