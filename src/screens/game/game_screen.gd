@@ -80,8 +80,8 @@ func get_highest_poker_hand(card_names: Array[String]) -> PokerHand:
     if card_names.size() == Definitions.max_selected_cards:
         has_flush = suits.all(func(elem: String) -> bool: return elem == suits[0])
 
-        has_straight = true
         # Search royal straight
+        has_straight = true
         if ranks.has(1): # Has Ace
             is_royal = true
 
@@ -94,12 +94,13 @@ func get_highest_poker_hand(card_names: Array[String]) -> PokerHand:
                     has_straight = false
                     is_royal = false
                     break
+
         # Search normal straight
-        else:
-            for index: int in range(1, ranks.size()):
-                if ranks[index - 1] != ranks[index] - 1:
-                    has_straight = false
-                    break
+        has_straight = true
+        for index: int in range(1, ranks.size()):
+            if ranks[index - 1] != ranks[index] - 1:
+                has_straight = false
+                break
 
     var paterns: Dictionary[int, int] = {}
     for rank: int in ranks:
